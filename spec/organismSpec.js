@@ -7,7 +7,7 @@ describe("Organism", () => {
 
     describe(".findNeigbours", () => {
         it("should return an array of arrays, pointing out the neighbours", () => {
-            expect(organism.findNeighbours(1, 1)).toEqual([
+            expect(organism._findNeighbours(1, 1)).toEqual([
                 [0, 0],
                 [0, 1],
                 [0, 2],
@@ -19,7 +19,7 @@ describe("Organism", () => {
             ])
         });
         it("case row == 0, column == 0", () => {
-            expect(organism.findNeighbours(0, 0)).toEqual([
+            expect(organism._findNeighbours(0, 0)).toEqual([
                 [0, 1],
                 [1, 0],
                 [1, 1]
@@ -27,7 +27,7 @@ describe("Organism", () => {
         });
 
         it("case row == 0, size > column > 0", () => {
-            expect(organism.findNeighbours(0, 3)).toEqual([
+            expect(organism._findNeighbours(0, 3)).toEqual([
                 [0, 2],
                 [0, 4],
                 [1, 2],
@@ -37,7 +37,7 @@ describe("Organism", () => {
         });
 
         it("case col == 0, size > row > 0", () => {
-            expect(organism.findNeighbours(10, 0)).toEqual([
+            expect(organism._findNeighbours(10, 0)).toEqual([
                 [9, 0],
                 [9, 1],
                 [10, 1],
@@ -47,7 +47,7 @@ describe("Organism", () => {
         });
 
         it("case row == 0, col == size", () => {
-            expect(organism.findNeighbours(0, 49)).toEqual([
+            expect(organism._findNeighbours(0, 49)).toEqual([
                 [0, 48],
                 [1, 48],
                 [1, 49]
@@ -55,7 +55,7 @@ describe("Organism", () => {
         });
 
         it("case 0 < row < size, col == size", () => {
-            expect(organism.findNeighbours(10, 49)).toEqual([
+            expect(organism._findNeighbours(10, 49)).toEqual([
                 [9, 49],
                 [9, 48],
                 [10, 48],
@@ -65,21 +65,21 @@ describe("Organism", () => {
         });
 
         it("case row == size & col == size", () => {
-            expect(organism.findNeighbours(49, 49)).toEqual([
+            expect(organism._findNeighbours(49, 49)).toEqual([
                 [48, 49],
                 [48, 48],
                 [49, 48]
             ]);
         });
         it("case row == size & col == 0", () => {
-            expect(organism.findNeighbours(49, 0)).toEqual([
+            expect(organism._findNeighbours(49, 0)).toEqual([
                 [48, 0],
                 [48, 1],
                 [49, 1]
             ]);
         });
         it("case row == size & 0 < col < size", () => {
-            expect(organism.findNeighbours(49, 1)).toEqual([
+            expect(organism._findNeighbours(49, 1)).toEqual([
                 [49, 0],
                 [48, 0],
                 [48, 1],
@@ -88,4 +88,5 @@ describe("Organism", () => {
             ]);
         });
     });
+
 });

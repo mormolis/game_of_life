@@ -1,6 +1,9 @@
 'use strict';
 var Organism = require('./lib/organism.js');
 
-var organism = new Organism(10);
+var organism = new Organism(20);
 organism.init();
-console.log(organism.toString());
+while (true){
+    console.log(organism.toString());
+    organism.getToTheNextGeneration();
+}
