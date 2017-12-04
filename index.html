@@ -23,6 +23,7 @@
     <script src="./lib/organism.js"></script>
 
     <script>
+        const SIZE = 50;
         function createMatrix(size) {
             var str = "<table>";
             for (var i = 0; i < size; i++) {
@@ -35,31 +36,34 @@
             str += "</table>";
             return str;
         }
-
-        var organism = new Organism(10);
-        organism.init();
-        document.getElementById("matrix").innerHTML = createMatrix(10);
-
-
-        function changeTable() {
+        function updateView(){
             var cellId;
-            for (var i = 0; i < 10; i++) {
-                for (var j = 0; j < 10; j++) {
+            for (var i = 0; i < SIZE; i++) {
+                for (var j = 0; j < SIZE; j++) {
                     cellId = "cell" + i + "_" + j;
                     document.getElementById(cellId).style.backgroundColor = organism.body[i][j].alive ? 'black' : 'white';
-
                 }
             }
+        }
+
+        var organism = new Organism(SIZE);
+        organism.init();
+        document.getElementById("matrix").innerHTML = createMatrix(SIZE);
+        updateView();
+
+        function changeTable() {
             organism.getToTheNextGeneration();
+            updateView();
+            // console.log(organism.toString())
         }
 
 
-        // for (var i = 0; i < 10000; i++) {
+        for (var i = 0; i < 10000; i++) {
 
-        //     setTimeout(function () {
-        //         document.getElementById("daButton").click();
-        //     }, 150);
-        // }
+            setTimeout(function () {
+                document.getElementById("daButton").click();
+            }, 1500);
+        }
 
 
     </script>
